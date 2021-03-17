@@ -1,0 +1,51 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="ns.HTML5Module.controller.main" displayBlock="true">
+	<Shell id="shell">
+		<App id="app">
+			<pages>
+				<Page id="page" title="{i18n>title}">
+					<content>
+                        <Panel>
+                            <headerToolbar>
+                                <Toolbar>
+                                    <Title text="{i18n>toolbarTitle}"/>
+                                    <ToolbarSpacer></ToolbarSpacer>
+                                    <SearchField    width="50%"
+                                                    search=".onFilteredProducts"
+                                                    placeholder="{i18n>toolbarProductsName}"
+                                                    >
+                                    </SearchField>
+                                </Toolbar>
+                            </headerToolbar>
+                            <Table id="productList" class="" width="auto" items="{path: 'northwindM>/Products'}">
+                                <columns>
+                                    <Column>
+                                        <Text text="{i18n>columnProductID}"/>
+                                    </Column>
+                                    <Column>
+                                        <Text text="{i18n>columnProductName}"/>
+                                    </Column>
+                                    <Column>
+                                        <Text text="{i18n>columnCategoryID}"/>
+                                    </Column>
+                                    <Column>
+                                        <Text text="{i18n>columnUnitPrice}"/>
+                                    </Column>
+                                </columns>
+                                <items>
+                                    <ColumnListItem>
+                                        <cells>
+                                            <ObjectNumber number="{northwindM>ProductID}"/>
+                                            <Text text="{northwindM>ProductName}"/>
+                                            <ObjectNumber number="{northwindM>CategoryID}"/>
+                                            <ObjectNumber number="$ {northwindM>UnitPrice}"/>
+                                        </cells>
+                                    </ColumnListItem>
+                                </items>
+                            </Table>
+                        </Panel>
+                    </content>
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>
